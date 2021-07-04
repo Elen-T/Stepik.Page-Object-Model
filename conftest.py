@@ -1,4 +1,5 @@
 import pytest
+from django.conf.locale import en
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
