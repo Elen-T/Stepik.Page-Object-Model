@@ -8,20 +8,26 @@ class ProductPage(BasePage):
         button_baskets= self.browser.find_element(*ProductPageLocators.BUTTON_BASKETS)
         button_baskets.click()
 
+    def return_book_name(self):
+        book_name = self.browser.find_element(*ProductPageLocators.NAME_ITEM_IN_CART)
+        return book_name.text
+
+    def return_book_price(self):
+        book_price = self.browser.find_element(*ProductPageLocators.PRICE_PRODUCT)
+        return book_price.text
+
     #Сообщение о том, что товар добавлен в корзину. Название товара в сообщении должно совпадать с тем товаром,
     # который вы действительно добавили.
-    def item_added_to_cart (self, product_name):
+    def item_added_to_cart (self, book_name):
         #text = ProductPageLocators.NAME_ITEM_IN_CART
         #assert text == ProductPageLocators.NAME_ITEM_IN_MESSAGE, "item not added to cart "
-        product_name = self.browser.find_element(*ProductPageLocators.NAME_ITEM_IN_CART).text
         added_product_name = self.browser.find_element(*ProductPageLocators.NAME_ITEM_IN_MESSAGE).text
-        assert product_name == added_product_name, f"Product name does not match, should {product_name}, given {added_product_name}"
+        assert book_name == added_product_name, f"Product name does not match, should {book_name}, given {added_product_name}"
 
     #Сообщение со стоимостью корзины. Стоимость корзины совпадает с ценой товара
-    def basket_item_prices_is_correct (self):
+    def basket_item_prices_is_correct (self, book_price):
         cart_value = self.browser.find_element(*ProductPageLocators.CART_VALUE).text
-        price_product = self.browser.find_element(*ProductPageLocators.PRICE_PRODUCT).text
-        assert cart_value ==  price_product, f"Price does not match, should {price_product}, given {cart_value}"
+        assert cart_value == book_price, f"Price does not match, should {book_price}, given {cart_value}"
 
 
 

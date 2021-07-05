@@ -14,5 +14,5 @@ def test_guest_can_add_product_to_basket(browser):
     page.add_to_baskets()
     page.solve_quiz_and_get_code()
     time.sleep(1)
-    page.item_added_to_cart()
-    page.basket_item_prices_is_correct()
+    page.item_added_to_cart(page.return_book_name())
+    page.basket_item_prices_is_correct(page.return_book_price())
