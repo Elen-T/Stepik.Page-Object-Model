@@ -19,3 +19,4 @@ class ProductPageLocators():
     NAME_ITEM_IN_CART =(By.CSS_SELECTOR, ".product_main > h1")
     CART_VALUE=(By.CSS_SELECTOR, ".alertinner > p > strong") #стоимость корзины
     PRICE_PRODUCT = (By.CSS_SELECTOR, "div.product_main .price_color")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")

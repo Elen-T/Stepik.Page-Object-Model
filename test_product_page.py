@@ -43,3 +43,25 @@ def test_guest_can_add_product_to_basket(browser, link):
     time.sleep(1)
     page.item_added_to_cart(page.return_book_name())
     page.basket_item_prices_is_correct(page.return_book_price())
+
+
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_baskets()
+    page.should_not_be_success_message()
+
+
+def test_guest_cant_see_success_message(browser):
+    link="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_not_be_success_message()
+
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+    page = ProductPage(browser, link)
+    page.open()
+    page.add_to_baskets()
+    page.should_be_is_disappeared()
