@@ -29,10 +29,12 @@ class ProductPage(BasePage):
         cart_value = self.browser.find_element(*ProductPageLocators.CART_VALUE).text
         assert cart_value == book_price, f"Price does not match, should {book_price}, given {cart_value}"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
 
-
-
-#Сообщение со стоимостью корзины. Стоимость корзины совпадает с ценой товара.
-
+    def should_be_is_disappeared(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "is not disappeared"
 
 

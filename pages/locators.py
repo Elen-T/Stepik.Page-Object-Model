@@ -20,3 +20,8 @@ class ProductPageLocators():
     CART_VALUE=(By.CSS_SELECTOR, ".alertinner > p > strong") #стоимость корзины
     PRICE_PRODUCT = (By.CSS_SELECTOR, "div.product_main .price_color")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
