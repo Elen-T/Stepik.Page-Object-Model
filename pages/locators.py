@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link") #каждый селектор — это пара: как искать и что искатclassь.
+    VIEW_BASKET = (By.CSS_SELECTOR, " div > div.basket-mini.pull-right.hidden-xs .btn.btn-default")
 
 
 class LoginPageLocators():
@@ -25,3 +26,11 @@ class ProductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+
+class BasketPageLocators():
+    BASKET_EMPTY_MESSAGE = (By.XPATH,"//*[@id=content_inner]/p/text()")
+    BASKET_ITEMS_CONTAINER = (By.CSS_SELECTOR, '#basket_formset .basket-items')
+    #BASKET_EMPTY_MESSAGE = (By.XPATH, "//div[@id='content_inner']/p[contains(text(),'Your basket is empty')]")
+
+
